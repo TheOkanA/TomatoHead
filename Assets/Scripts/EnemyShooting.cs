@@ -20,7 +20,8 @@ public class EnemyShooting : MonoBehaviour
     void Update()
     {
 
-
+        if (!player)
+            return;
         float distance = Vector2.Distance(transform.position, player.transform.position);
         Debug.Log(distance);
 
@@ -28,10 +29,22 @@ public class EnemyShooting : MonoBehaviour
         {
             timer += Time.deltaTime;
             timer = 0;
-            Shoot();
+            if (a == false)
+            {
+             StartCoroutine(timert());
+             a = true;
+            }
+
         }
     }
 
+            bool a = false;
+    IEnumerator timert()
+    {
+        Shoot();
+        yield return new WaitForSeconds(1.5f);
+        a = false;
+    }
     void Shoot()
     {
         Instantiate(bullet, bulletPos.position, Quaternion.identity);

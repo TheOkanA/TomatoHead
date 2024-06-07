@@ -95,6 +95,7 @@ public class PowerUp : MonoBehaviour
     public void RightButton()
     {
         sayi++;
+        print("akjbnsdkajsbdjask");
     }
 
     public void LeftButton()
@@ -122,9 +123,14 @@ public class PowerUp : MonoBehaviour
 
     }
 
+    public GameObject yer;
+    public GameObject player;
     void ReloadScene()
     {
-        SceneManager.LoadScene(sceneIndex);
+        player.transform.position = yer.transform.position;
+        //SceneManager.LoadScene(sceneIndex);
+        PowerUpsPanel.SetActive(false);
+        
     }
     
 }
