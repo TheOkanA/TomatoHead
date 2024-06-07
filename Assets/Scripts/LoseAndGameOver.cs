@@ -53,7 +53,9 @@ public class LoseAndGameOver : MonoBehaviour
                     Invoke("YouLosePanelController", 1f);
                     if (level)
                     {
-                        SceneManager.LoadScene("Level1");
+                        
+                        Debug.LogWarning("chekoooo");
+                        //SceneManager.LoadScene("Level1");
                         playla.transform.position = chakpos.transform.position;
                     }
                     else
@@ -65,7 +67,6 @@ public class LoseAndGameOver : MonoBehaviour
                 case 2:
                     YouLosePanel.SetActive(true);
                     Invoke("YouLosePanelController", 1f);
-                    SceneManager.LoadScene("Level1");
                     break;
             }
         }

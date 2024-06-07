@@ -25,7 +25,7 @@ public class PowerUp : MonoBehaviour
         PowerUpsHealth = GameObject.Find("PowerUpsHealth-");
         PowerUpsSpeed = GameObject.Find("PowerUpsSpeed-");
         PowerUpsHealth2 = GameObject.Find("PowerUpsHealth+2");
-        PowerUpsPanel = GameObject.Find("PowerUp");
+        //PowerUpsPanel = GameObject.Find("PowerUp");
 
         PowerUpsPanel.SetActive(false);
 
