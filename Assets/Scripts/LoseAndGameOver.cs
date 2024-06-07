@@ -16,6 +16,10 @@ public class LoseAndGameOver : MonoBehaviour
 
     public int currentscene;
 
+    public bool level = false;
+    public GameObject playla;
+    public GameObject chakpos;
+
     void Start()
     {
         YouLosePanel = GameObject.Find("YouLosePanel");
@@ -47,12 +51,21 @@ public class LoseAndGameOver : MonoBehaviour
                 case 1:
                     YouLosePanel.SetActive(true);
                     Invoke("YouLosePanelController", 1f);
-                    SceneManager.LoadScene(currentscene);
+                    if (level)
+                    {
+                        SceneManager.LoadScene("Level1");
+                        playla.transform.position = chakpos.transform.position;
+                    }
+                    else
+                    {
+                        
+                        SceneManager.LoadScene("Level1");
+                    }
                     break;
                 case 2:
                     YouLosePanel.SetActive(true);
                     Invoke("YouLosePanelController", 1f);
-                    SceneManager.LoadScene(currentscene);
+                    SceneManager.LoadScene("Level1");
                     break;
             }
         }

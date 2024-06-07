@@ -30,7 +30,7 @@ public class MonsterDamage : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(gameObject);
         playerHealth.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }

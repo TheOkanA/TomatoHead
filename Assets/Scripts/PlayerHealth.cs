@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 
@@ -70,7 +71,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(gameObject);
-        Time.timeScale = 0f;
+        // Destroy(gameObject);
+        // Time.timeScale = 0f;
+
     }
+    
+
 }
