@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
   jump: 300
+  groundCheck: 0
   walkAnim: {fileID: 2934133284777679348}
   attackAnim: {fileID: 2934133284777679348}
 --- !u!50 &5773560435545566752

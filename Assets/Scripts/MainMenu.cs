@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
         switch (sayi)
         {
             case 0:
-                sayi = 3;
+                sayi = 1;
                 break;
             case 1:
                 Play.SetActive(false);
@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
                 Quit.SetActive(false);
                 break;
             case 4:
-                sayi = 1;
+                sayi = 3;
                 break;
         }
     }

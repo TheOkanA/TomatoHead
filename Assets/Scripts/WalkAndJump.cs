@@ -8,11 +8,12 @@ public class WalkAndJump : MonoBehaviour
     public float moveSpeed = 3f;
     public float jump = 2f;
     bool isWalking = false;
-    bool isAttacking = false;
+    public bool isAttacking = false;
     public bool groundCheck;
     bool wall;
     public Animator walkAnim;
     public Animator attackAnim;
+
 
     void Start()
     {
@@ -27,7 +28,7 @@ public class WalkAndJump : MonoBehaviour
         {
             FlipToRight();
         }
-        else
+        if (moveInput > 0)
         {
             FlipToLeft();
         }
@@ -41,19 +42,20 @@ public class WalkAndJump : MonoBehaviour
             isWalking = false;
         }
 
-        if (Input.GetButtonDown("Fire1"))
+
+        /*if (Input.GetButtonDown("Fire1"))
         {
             isAttacking = true;
         }
         else
         {
             isAttacking = false;
-        }
+        }*/
         attackAnim.SetBool("isAttacking", isAttacking);
 
         walkAnim.SetBool("isWalking", isWalking);
 
-        if (Input.GetButtonDown("Jump") && groundCheck == true)
+        if (Input.GetKeyDown(KeyCode.W) && groundCheck == true)
         {
             rb.AddForce(new Vector3(rb.velocity.x, jump));
         }
@@ -61,22 +63,44 @@ public class WalkAndJump : MonoBehaviour
     }
 
 
+        private void isAttackingFalse()
+        {
+          isAttacking = false;
+        }
+
+
+        public void fireButton()
+        {
+            isAttacking = true;
+            Invoke("isAttackingFalse", 0.3f);
+        }
+
+
         void OnTriggerEnter2D(Collider2D other)
         {
+             if (other.CompareTag("Map"))
+             {
+                groundCheck = true;
+             }
+        }
+
+         void OnTriggerStay2D(Collider2D other)
+         {
             if (other.CompareTag("Map"))
             {
                 groundCheck = true;
             }
-        }
+         }
+
         void OnTriggerExit2D(Collider2D other)
         {
             if (other.CompareTag("Map"))
             {
-                groundCheck = false;
+            groundCheck = false;
             }
         }
 
-        void FlipToRight()
+    void FlipToRight()
         {
             //facingRight = true;
             transform.localScale = new Vector3(-1, 1, 1);

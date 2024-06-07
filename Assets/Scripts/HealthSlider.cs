@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealthSlider : MonoBehaviour
 {
 
-    public Health health;
+    public PlayerHealth health;
     public Slider healthBar;
     // Start is called before the first frame update
     void Start()
